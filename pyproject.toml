@@ -26,7 +26,7 @@ dev = [
   "pytest>=8.3,<9",
   "ruff>=0.11,<1",
 ]
-mcp = ["mcp>=1.9,<2"]
+mcp = ["mcp>=1.9,<3"]
 
 [project.scripts]
 blackice = "blackice.cli:main"
