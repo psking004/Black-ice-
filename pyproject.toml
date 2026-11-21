@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "black-ice-control-plane"
+version = "0.1.0"
+description = "A local, default-deny security gateway for agent task execution"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "BLACK ICE contributors"}]
+dependencies = [
+  "fastapi>=0.115.12,<0.117",
+  "httpx>=0.28,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "pydantic>=2.11,<3",
+  "beautifulsoup4>=4.13,<5",
+  "defusedxml>=0.7.1,<1",
+  "pypdf>=5.4,<7",
+  "pillow>=11.2,<13",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "ruff>=0.11,<1",
+]
+mcp = ["mcp>=1.9,<2"]
+
+[project.scripts]
+blackice = "blackice.cli:main"
+blackice-mcp = "blackice.mcp_server:main"
+blackice-operator-mcp = "blackice.operator_mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/blackice"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E203", "E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

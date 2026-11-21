@@ -1,0 +1,12 @@
+{
+  "name": "black-ice-console",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "pnpm --filter @blackice/console dev",
+    "build": "pnpm --filter @blackice/console build",
+    "typecheck": "pnpm --filter @blackice/console typecheck",
+    "test": "pnpm --filter @blackice/console test"
+  }
+}
