@@ -4,20 +4,19 @@
 - **State:** Active early-stage implementation; core gateway and console exist, but broad acceptance remains partial.
 - **Workspace:** Bound managed WebDev project for BLACK ICE.
 - **Runtime:** Python 3.12, Node.js 22, pnpm 11.25.0; Python environment locked by `uv.lock`.
-- **Persistence:** Local Git initialized on `main`; `origin` points to the user-provided public repository. Target is confirmed public, empty, and writable. Initial commit/push is pending; this separate repository is not a managed WebDev checkpoint.
+- **Persistence:** Public repository `https://github.com/psking004/Black-ice-` now has branch `main` at initial commit `a8186d9f9f894ce17d17f32f2a00648bff6976b1`. Local `main` tracks `origin/main`; worktree was clean after push. This is a separate repository copy, not a managed WebDev checkpoint.
 - **Backend:** FastAPI control plane, signed/expiring/revocable task envelopes, operator/agent authentication split, gateway/policy, scoped workspace adapter, artifact inspection, structured decisions, SQLite audit chain, CLI, SDK, agent MCP and separate operator MCP.
 - **Frontend:** React/TypeScript operator console calls the API. It is not a mock telemetry feed; only the implemented API surfaces are real.
 - **Tests (2026-11-21):** `uv lock --check`; locked sync; Ruff; **33 Python tests passed**; package sdist/wheel built; frontend typecheck passed; **2 frontend tests passed**; frontend production build passed. One dependency deprecation warning from Starlette/AnyIO was emitted.
 - **Security review:** A read-only review identified and fixes were made for pre-auth/unbounded audit creation, prefix redaction, over-budget audit growth, task lifetime consistency, and policy-error handling. This is not a comprehensive audit.
 - **Limitations:** No arbitrary command execution, package installation, outbound network adapter, hostile-code/process isolation, multi-process locking, complete data-flow/taint tracking, external/immutable audit witness, full incident lifecycle, or comprehensive adversarial/real-world benchmark. Protections apply only through registered gateway operations. See [`SECURITY_STATUS.md`](SECURITY_STATUS.md).
-- **GitHub:** The user specified `https://github.com/psking004/Black-ice-.git`. Authenticated metadata confirms it is public and empty, and the current account has push permission. The staged source/docs passed `git diff --cached --check` and a targeted credential-pattern scan; the initial push has not yet occurred.
+- **GitHub:** The user-specified public target received 80 intended files in the initial push. Remote `main` was verified to match SHA `a8186d9f9f894ce17d17f32f2a00648bff6976b1`. The CI run for that SHA is in progress; Dependabot has also opened dependency update runs.
 
 ## Immediate continuation
 
-1. Commit and push the reviewed staged project to the specified public `main` branch using the authenticated Git credential helper; do not force-push.
-2. Verify the pushed SHA and branch on GitHub, then update the status snapshot with the result.
-3. Treat this push as a separate public repository, not a managed WebDev repository switch/checkpoint.
-4. Reconcile remaining acceptance items and continue with the limitations recorded in [`SECURITY_STATUS.md`](SECURITY_STATUS.md).
+1. Review the GitHub CI result for the initial commit; do not describe it as passing until it completes.
+2. Treat this push as a separate public repository, not a managed WebDev repository switch/checkpoint.
+3. Reconcile remaining acceptance items and continue with the limitations recorded in [`SECURITY_STATUS.md`](SECURITY_STATUS.md).
 
 
 ## Synthetic lab evidence

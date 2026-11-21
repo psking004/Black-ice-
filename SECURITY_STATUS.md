@@ -18,7 +18,7 @@ A read-only security review found and prompted fixes for potentially unbounded p
 - `pnpm test`: **2 passed**.
 - `pnpm build`: passed.
 
-These are software checks, not penetration testing, host isolation validation, or certification. GitHub CI and Gitleaks were configured but had not executed at the time this initial public push was prepared. Synthetic lab cases are bounded scenarios, not estimates of real-world detection or false-positive rates.
+These are software checks, not penetration testing, host isolation validation, or certification. GitHub CI and Gitleaks are configured. The workflow triggered by the initial public push was still in progress when this status was recorded; no CI/Gitleaks pass is claimed. Synthetic lab cases are bounded scenarios, not estimates of real-world detection or false-positive rates.
 
 ## Material limitations
 
@@ -32,7 +32,7 @@ Artifact parser results describe bounded parser coverage; they are not a safety 
 
 ## GitHub/persistence status
 
-The user specified `https://github.com/psking004/Black-ice-.git`. Authenticated metadata confirmed it is public, empty, and writable by the current account. A local `main` branch and `origin` are configured; 80 intended files were staged after excluding ignored `.env`, SQLite state, and build outputs. `git diff --cached --check` and a targeted secret-pattern scan passed. The initial commit/push is still pending in this snapshot. A successful push will be a separate public repository copy, not a switch of the managed WebDev canonical repository or a Manus checkpoint. CI/Gitleaks results must be reported only after GitHub runs them.
+The user specified `https://github.com/psking004/Black-ice-.git`. Authenticated metadata confirmed it is public and writable. Initial commit `a8186d9f9f894ce17d17f32f2a00648bff6976b1` was pushed to `main`; remote SHA verification matched, and the local worktree was clean after the push. `.env`, SQLite state and build output stayed ignored; `git diff --cached --check` and a targeted credential-pattern scan found no issue. This is a separate public repository copy, not a switch of the managed WebDev canonical repository or a Manus checkpoint. The CI/Gitleaks run was still in progress when recorded.
 
 
 ## Synthetic lab result
